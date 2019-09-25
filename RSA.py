@@ -9,5 +9,5 @@ class montgomery:
 
     def encrypt(self, M):
         # M^e mod n
-        
+
         pass
