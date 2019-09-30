@@ -15,19 +15,6 @@ def montgomery_product(a,b,n):
         return S
 
 
-"""
-long long binpow(long long a, long long b, long long m) {
-    a %= m;
-    long long res = 1;
-    while (b > 0) {
-        if (b & 1)
-            res = res * a % m;
-        a = a * a % m;
-        b >>= 1;
-    }
-    return res;
-}
-"""
 def modular_exponentiation(message,e,n):
     pre_def_P = pow(2,2*128,n)
     mon_P = montgomery_product(pre_def_P,message,n)
