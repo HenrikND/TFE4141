@@ -1,6 +1,8 @@
 bit_length_e = 256
 
 def get_bit(bit_array,bit_location):
+    #will return 1 if the bit in location is 1
+    #and will return 0 if the bit is 0
     return (bit_array>>bit_location)&0x1
 
 def montgomery_product(a,b,n):
@@ -17,14 +19,14 @@ def montgomery_product(a,b,n):
         return S
 
 def modular_exponentiation(message,e,n):
-    pre_def_P = pow(2,2*bit_length_e,n)
-    mon_P = montgomery_product(pre_def_P,message,n)
-    C = montgomery_product(pre_def_P,1,n)
+    p_mod_n = pow(2,2*bit_length_e,n) # will be predefined since e and n is constant(the keys)
+    S_mon = montgomery_product(p_mod_n,message,n)
+    C = montgomery_product(1,p_mod_n,n)
 
     for i in range(bit_length_e-1,-1,-1):
         C = montgomery_product(C,C,n)
         if get_bit(e,i):
-            C = montgomery_product(mon_P,C,n)
+            C = montgomery_product(S_mon,C,n)
     C = montgomery_product(1,C,n)
     return C
 
@@ -33,8 +35,8 @@ def modular_exponentiation(message,e,n):
 
 #test fuctions
 print("modular exponentiation:  ",(modular_exponentiation(19,
-                                          0x5,
-                                          0x77)))
+                                                            0x5,
+                                                            0x77)))
 print("built in python function:",(pow(19,
-                       0x5,
-                       0x77)))
+                                        0x5,
+                                        0x77)))
