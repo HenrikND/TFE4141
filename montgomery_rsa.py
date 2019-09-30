@@ -15,7 +15,19 @@ def montgomery_product(a,b,n):
         return S
 
 
-
+"""
+long long binpow(long long a, long long b, long long m) {
+    a %= m;
+    long long res = 1;
+    while (b > 0) {
+        if (b & 1)
+            res = res * a % m;
+        a = a * a % m;
+        b >>= 1;
+    }
+    return res;
+}
+"""
 def modular_exponentiation(message,e,n):
     pre_def_P = pow(2,2*128,n)
     mon_P = montgomery_product(pre_def_P,message,n)
@@ -25,7 +37,6 @@ def modular_exponentiation(message,e,n):
         C = montgomery_product(C,C,n)
         if get_bit(e,i):
             C = montgomery_product(mon_P,C,n)
-
     C = montgomery_product(1,C,n)
     return C
 
@@ -34,8 +45,8 @@ def modular_exponentiation(message,e,n):
 
 #test fuctions
 print("MODEXP",hex(modular_exponentiation(0x0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,
-                            0x00000000000000000000000000010001,
-                            0x819DC6B2574E12C3C8BC49CDD79555FD)))
+                                          0x00000000000000000000000000010001,
+                                          0x819DC6B2574E12C3C8BC49CDD79555FD)))
 print("MODEXP",hex(pow(0x0AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA,
-                            0x00000000000000000000000000010001,
-                            0x819DC6B2574E12C3C8BC49CDD79555FD)))
+                       0x00000000000000000000000000010001,
+                       0x819DC6B2574E12C3C8BC49CDD79555FD)))
