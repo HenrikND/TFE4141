@@ -1,0 +1,10 @@
+def montgomery_product(a,b,n):
+    S = 0
+    for i in range(256):
+            S = S + a(i)*b
+            S = S + S(0)*n
+            S = S >> 1
+    if S >= n:
+        return S-n
+    else:
+        return S
