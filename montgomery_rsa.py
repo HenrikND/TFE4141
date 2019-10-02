@@ -34,9 +34,9 @@ def modular_exponentiation(message,e,n):
 #main
 
 #test fuctions
-print("modular exponentiation:  ",(modular_exponentiation(19,
+print("modular exponentiation:  ",(modular_exponentiation(55,
                                                             0x5,
                                                             0x77)))
-print("built in python function:",(pow(19,
+print("built in python function:",(pow(55,
                                         0x5,
                                         0x77)))
