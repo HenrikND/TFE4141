@@ -8,3 +8,15 @@ def montgomery_product(a,b,n):
         return S-n
     else:
         return S
+
+
+def modular_exponentiation(message,e,n,p_mod_n):
+    S_mon = montgomery_product(p_mod_n,message,n)
+    C = montgomery_product(1,p_mod_n,n)
+
+    for i in range(bit_length_e-1,-1,-1):
+        C = montgomery_product(C,C,n)
+        if get_bit(e,i):
+            C = montgomery_product(S_mon,C,n)
+    C = montgomery_product(1,C,n)
+    return C
