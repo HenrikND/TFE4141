@@ -1,4 +1,4 @@
-def montgomery_product(a,b,n):
+def mon_pro(a,b,n):
     S = 0
     for i in range(256):
             S = S + a(i)*b
@@ -10,13 +10,13 @@ def montgomery_product(a,b,n):
         return S
 
 
-def modular_exponentiation(message,e,n,p_mod_n):
-    S_mon = montgomery_product(p_mod_n,message,n)
-    C = montgomery_product(1,p_mod_n,n)
+def mod_exp(M,e,n,P):
+    S_mon = mon_pro(P,M,n)
+    C = mon_pro(1,P,n)
 
-    for i in range(bit_length_e-1,-1,-1):
-        C = montgomery_product(C,C,n)
-        if get_bit(e,i):
-            C = montgomery_product(S_mon,C,n)
-    C = montgomery_product(1,C,n)
+    for i in (bit_length_e-1 : -1 : -1 ):
+        C = mon_pro(C,C,n)
+        if e(i) == 1:
+            C = mon_pro(S_mon,C,n)
+    C = mon_pro(1,C,n)
     return C

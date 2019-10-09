@@ -8,7 +8,7 @@ def get_bit(bit_array,bit_location):
 def montgomery_product(a,b,n):
     S = 0
     for i in range(bit_length_e):
-            if get_bit(S+get_bit(a,i)*b,0) == 0:
+            if get_bit(S + get_bit(a,i)*b,0) == 0:
                 S = S + get_bit(a,i)*b
             else:
                 S = S + get_bit(a,i)*b + n
