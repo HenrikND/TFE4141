@@ -14,9 +14,11 @@ def mod_exp(M,e,n,P):
     S_mon = mon_pro(P,M,n)
     C = mon_pro(1,P,n)
 
-    for i in (bit_length_e-1 : -1 : -1 ):
+    for i in (bit_length_e - 1 downto 0 ):
         C = mon_pro(C,C,n)
         if e(i) == 1:
             C = mon_pro(S_mon,C,n)
     C = mon_pro(1,C,n)
     return C
+
+
