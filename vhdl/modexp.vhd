@@ -33,17 +33,22 @@ begin
       elsif(rising_edge(clock)) then
         case(state) is
           when 0 =>
-            --monpro(M,p,n,s_mon)
-            --monpro(P,1,n,C)
-            state = 1;
+            --monpro(M,p,n,s_mon,done1)
+            --monpro(P,1,n,C,done2)
+            if (done1 = '1') and (done2 = '2') then
+              state = 1;
+            end if ;
           when 1 =>
             if state_loop = '1' then
-              -- monpro(s_mon, C, n, C)
+              -- monpro(s_mon, C, n, C, done3)
             else
-              -- monpro(C, C, n, C)
+              -- monpro(C, C, n, C, done3)
+            end if ;
+            if done3 = '1' then
+              state = 2
             end if ;
           when 2 =>
-            --monpro(1,C,n,data_out)
+            --monpro(1,C,n,data_out, done5)
           when others =>
             -- state = 0
         end case ;
