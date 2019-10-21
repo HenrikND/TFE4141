@@ -31,7 +31,7 @@ begin
         state <= '0';
         counter <= (others => '0');
         a_shift <= (others => '0');
-        done <= (others => '0')
+        done <= '0';
       elsif( rising_edge(clock) ) then
         if counter(8) = '1' then
             done <= '1';
@@ -81,7 +81,6 @@ begin
                         Q <= P;
                     end if ;
                     --Q <= Q(254 downto 0) & '0';
-
                     counter <= counter + 1;
                     state <= '0';
             end case ;
