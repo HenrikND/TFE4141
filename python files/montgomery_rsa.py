@@ -21,7 +21,7 @@ def montgomery_product(a,b,n):
 def modular_exponentiation(message,e,n):
     p_mod_n = pow(2,2*bit_length_e,n) # will be predefined since e and n is constant(the keys)
     S_mon = montgomery_product(p_mod_n,message,n)
-    C = montgomery_product(1,p_mod_n,n)
+    C = montgomery_product(1,p_mod_n,n) #prefined
 
     for i in range(bit_length_e-1,-1,-1):
         C = montgomery_product(C,C,n)

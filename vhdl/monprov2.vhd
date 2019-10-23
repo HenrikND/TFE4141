@@ -46,13 +46,10 @@ begin
               done <= '1';
           else
               done <= '0';
-              if counter = 0 then -- boot
-                  a_shift <= a;
-                  S <= (others => '0');
-              else
-                  a_shift(254 downto 0) <= a_shift(255 downto 1);
-                  a_shift(255) <= '0';
-              end if ;
+
+              a_shift(254 downto 0) <= a_shift(255 downto 1);
+              a_shift(255) <= '0';
+
           end if ;
         end if ;
       end if ;
