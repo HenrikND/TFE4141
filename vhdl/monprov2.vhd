@@ -81,7 +81,6 @@ begin
           Q_buf <= (others => '0');
           b_reg <= b;
           n_reg <= n;
-          data_recieved <= '1';
         else
           if counter(8) = '1' then
               if Q > unsigned(n_reg) then
