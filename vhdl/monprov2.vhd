@@ -29,14 +29,14 @@ begin
     controller : process( clock, reset_n )
     begin
       if( reset_n = '0' ) then
-        state <= '0';
+
         counter <= (others => '0');
         a_shift <= (others => '0');
         done <= '0';
       elsif( rising_edge(clock) ) then
 
         if begin_monpro = '1' then
-          state <= '0';
+
           counter <= (others => '0');
           a_shift <= a;
           done <= '0';
@@ -51,6 +51,10 @@ begin
               a_shift(255) <= '0';
 
           end if ;
+
+          if state = '1' and counter(8) = '0' then
+            counter <= counter + 1;
+          end if ;
         end if ;
       end if ;
     end process ; -- controller
@@ -60,6 +64,7 @@ begin
     data_path : process( clock, reset_n )
     begin
       if( reset_n = '0' ) then
+        state <= '0';
         Q <= (others => '0');
         result_buf <= (others => '0');
         S <= (others => '0');
@@ -78,6 +83,7 @@ begin
           Q_buf <= (others => '0');
           b_reg <= b;
           n_reg <= n;
+          state <= '0';
         else
           if counter(8) = '1' then
               if Q > unsigned(n_reg) then
@@ -102,7 +108,6 @@ begin
                           Q <= P;
                       end if ;
                       --Q <= Q(254 downto 0) & '0';
-                      counter <= counter + 1;
                       state <= '0';
               end case ;
           end if;

@@ -25,15 +25,16 @@ architecture arch of modexp is
 
     -- controll path signals
     signal monpro_begin, monpro_done : std_logic;
-    signal state : std_logic_vector(3 downto 0);
+    signal state : std_logic_vector(3 downto 0) := "0000";
     signal counter : unsigned(8 downto 0);
 
     -- data path signals
     signal s_mon : std_logic_vector(255 downto 0);
     signal c :std_logic_vector(255 downto 0);
     signal e_shift : std_logic_vector(255 downto 0);
+    signal result_buf : std_logic_vector(255 downto 0);
 
-    -- monpro connections
+    -- monpro connectionsresult_buf
     signal monpro_a, monpro_b, monpro_n, monpro_result: std_logic_vector(255 downto 0);
   begin
     monpro : monprov2 port map(clock => clock,
@@ -47,12 +48,16 @@ architecture arch of modexp is
 
     -- basic connection
     monpro_n <= n;
-
+    data_out <= result_buf;
 
     controller : process( clock, reset_n )
     begin
       if( reset_n = '0' ) then
         state <= (others => '0');
+        result_buf <= (others => '0');
+        counter <= (others => '0');
+        e_shift <= (others => '0');
+        monpro_begin <= '0';
 
 
       elsif( rising_edge(clock) ) then
@@ -61,7 +66,7 @@ architecture arch of modexp is
 
           when "0000" =>
             state <= "0001";
-    
+
           when "0001" =>
             if monpro_done = '1' then
               state <= "0100";
@@ -69,7 +74,7 @@ architecture arch of modexp is
 
           when "0100" =>
             state <= "0101";
-            
+            counter <= counter + '1';
           when "0101" =>
             if monpro_done = '1' then
               if e_shift(0) = '1' then
@@ -78,25 +83,25 @@ architecture arch of modexp is
                 state <= "0100";
               end if;
             end if ;
-            
+
           when "0110" =>
             state <= "0111";
-            
+
           when "0111" =>
             if monpro_done = '1' and counter(8) = '1' then
               state <= "1000";
             elsif monpro_done = '1' then
               state <= "0100";
             end if ;
-            
+
           when "1000" =>
             state <= "1001";
-            
+
           when "1001" =>
             if monpro_done = '1'then
               state <= "1110";
             end if ;
-            
+
           when "1110" =>
 
           when others =>
@@ -111,7 +116,6 @@ architecture arch of modexp is
 
         if state(2) = '1' and monpro_done = '1' then
            e_shift <= '0' & e_shift(255 downto 1);
-           counter <= counter + 1;
         end if;
 
         if state = "1110" then
@@ -132,13 +136,14 @@ architecture arch of modexp is
         elsif state(3) = '1' then
           monpro_a <= (0 => '1', others => '0');
           monpro_b <= C;
-          data_out <= monpro_result;
+          result_buf <= monpro_result;
         else -- init
           e_shift <= e;
           C <= p_mon;
           monpro_a <= m;
           monpro_b <= p;
           s_mon <= monpro_result;
+          counter <= (others => '0');
         end if ;
       end if ;
     end process ; -- controller
