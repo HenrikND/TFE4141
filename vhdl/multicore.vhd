@@ -6,7 +6,7 @@ use ieee.numeric_std.all;
 entity multicore is
     generic  (number_of_cores : integer := 5);
     port (
-        clock, reset_n , last_message_in: in std_logic;
+        clock, reset_n , last_message_in, message_in_ready: in std_logic;
         e, p, n, m, p_mon : in std_logic_vector(255 downto 0);
         data_out : out std_logic_vector(255 downto 0);
         data_ready : out std_logic
@@ -35,8 +35,8 @@ architecture arch of multicore is
 
       type mem is array (0 to number_of_cores) of std_logic_vector(255 downto 0);
       signal modexp_m ,modexp_data: mem;
-      signal modexp_ready : std_logic_vector(number_of_cores downto 0);
-      signal input_state : integer;
+      signal modexp_ready, modexp_reset_n: std_logic_vector(number_of_cores downto 0);
+      signal modexp_state : integer;
       signal input_thing : std_logic_vector(1 downto 0);
 
 begin
@@ -44,7 +44,7 @@ begin
 -- generate the nessesary number of blocks
     g_gen_modexp: for i in 0 to number_of_cores generate
         uut: modexp port map( clock => clock,
-                            reset_n => reset_n,
+                            reset_n => modexp_reset_n(i),
                             e => e,
                             n => n,
                             p => p,
@@ -57,18 +57,19 @@ begin
     controll : process( clock, reset_n )
     begin
         if( reset_n = '0' ) then
-            input_state <= 0;
+            modexp_state <= 0;
             input_thing <= "00";
+            modexp_reset_n <= (others => '0');
         elsif( rising_edge(clock) ) then
             -- check if input state has reach max
-            if input_state > number_of_cores then
-                input_state <= 0;
+            if modexp_state > number_of_cores then
+                modexp_state <= 0;
             end if;
 
             case(input_thing) is
             -- boot state
             when "00" =>
-                if input_state > number_of_cores then
+                if modexp_state > number_of_cores then
                     input_thing <= "01";
                 end if;
             --looping over messages
@@ -86,9 +87,13 @@ begin
 
         -- push message
         if input_thing = "00" then
+            if message_in_ready = '1' then
+                modexp_m(modexp_state) <= m;
 
+                modexp_reset_n(modexp_state) <= '1';
+            end if;
         else
-            if modexp_ready(input_state) = '1' then
+            if modexp_ready(modexp_state) = '1' then
 
             end if;
         end if;
