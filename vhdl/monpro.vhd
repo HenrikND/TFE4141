@@ -118,3 +118,11 @@ begin
 
 
 end arch ; -- arch
+case( signal_name ) is
+
+    when IDLE =>
+
+
+    when others =>
+
+end case ;
