@@ -26,7 +26,7 @@ architecture arch of modexp is
     -- controll path signals
     signal monpro_begin, monpro_done : std_logic;
     signal state : std_logic_vector(3 downto 0) := "0000";
-    signal counter : unsigned(8 downto 0);
+    signal counter : std_logic_vector(8 downto 0);
 
     -- data path signals
     signal s_mon : std_logic_vector(255 downto 0);
@@ -74,7 +74,7 @@ architecture arch of modexp is
 
           when "0100" =>
             state <= "0101";
-            counter <= counter + '1';
+            counter <= std_logic_vector(unsigned(counter) + 1);
           when "0101" =>
             if monpro_done = '1' then
               if e_shift(0) = '1' then

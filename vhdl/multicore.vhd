@@ -51,4 +51,16 @@ g_gen_modexp: for i in 0 to number_of_cores generate
                             data_ready => modexp_ready(i));
    end generate g_gen_modexp;
 
+
+
+   controll : process( clock, reset_n )
+   begin
+     if( reset_n = '0' ) then
+
+     elsif( rising_edge(clock) ) then
+
+     end if ;
+   end process ; -- controll
+
 end architecture ; -- arch
+
