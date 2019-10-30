@@ -18,7 +18,6 @@ architecture arch of monprov2 is
     signal S, P, Q, result_buf : unsigned(255 downto 0);
     signal a_shift,a_shift_buf, b_reg, n_reg : std_logic_vector(255 downto 0);
     signal counter : unsigned(8 downto 0);
-    signal Q_buf : unsigned(255 downto 0);
     signal state : std_ulogic;
 
 begin
@@ -69,7 +68,6 @@ begin
         result_buf <= (others => '0');
         S <= (others => '0');
         P <= (others  => '0');
-        Q_buf <= (others => '0');
         b_reg <= (others => '0');
         n_reg <= (others => '0');
 
@@ -80,7 +78,6 @@ begin
           result_buf <= (others => '0');
           S <= (others => '0');
           P <= (others  => '0');
-          Q_buf <= (others => '0');
           b_reg <= b;
           n_reg <= n;
           state <= '0';
@@ -118,11 +115,3 @@ begin
 
 
 end arch ; -- arch
-case( signal_name ) is
-
-    when IDLE =>
-
-
-    when others =>
-
-end case ;
