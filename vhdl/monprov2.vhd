@@ -29,14 +29,14 @@ begin
     begin
       if( reset_n = '0' ) then
 
-        counter <= (others => '0');
+        
         a_shift <= (others => '0');
         done <= '0';
       elsif( rising_edge(clock) ) then
 
         if begin_monpro = '1' then
 
-          counter <= (others => '0');
+          
           a_shift <= a;
           done <= '0';
 
@@ -52,7 +52,7 @@ begin
           end if ;
 
           if state = '1' and counter(8) = '0' then
-            counter <= counter + 1;
+            
           end if ;
         end if ;
       end if ;
@@ -70,7 +70,7 @@ begin
         P <= (others  => '0');
         b_reg <= (others => '0');
         n_reg <= (others => '0');
-
+        counter <= (others => '0');
       elsif(rising_edge(clock)) then
 
         if begin_monpro = '1' then
@@ -81,6 +81,7 @@ begin
           b_reg <= b;
           n_reg <= n;
           state <= '0';
+          counter <= (others => '0');
         else
           if counter(8) = '1' then
               if Q > unsigned(n_reg) then
@@ -106,6 +107,9 @@ begin
                       end if ;
                       --Q <= Q(254 downto 0) & '0';
                       state <= '0';
+                      counter <= counter + 1;
+                  when others =>
+                    state <= '0';
               end case ;
           end if;
         end if;

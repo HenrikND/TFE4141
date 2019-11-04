@@ -58,7 +58,7 @@ architecture arch of modexp is
         counter <= (others => '0');
         e_shift <= (others => '0');
         monpro_begin <= '0';
-
+        data_ready <=  '0';
 
       elsif( rising_edge(clock) ) then
         -- finite state machine
