@@ -15,8 +15,9 @@ end monprov2;
 
 architecture arch of monprov2 is
 
-    signal S, P, Q, result_buf : unsigned(255 downto 0);
-    signal a_shift,a_shift_buf, b_reg, n_reg : std_logic_vector(255 downto 0);
+    signal S, P, Q: unsigned(256 downto 0);
+    signal a_shift, b_reg, n_reg : std_logic_vector(255 downto 0);
+    signal result_buf : unsigned(255 downto 0);
     signal counter : unsigned(8 downto 0);
     signal state : std_ulogic;
 
@@ -35,7 +36,6 @@ begin
       elsif( rising_edge(clock) ) then
 
         if begin_monpro = '1' then
-
           
           a_shift <= a;
           done <= '0';
@@ -46,13 +46,13 @@ begin
           else
               done <= '0';
 
-              a_shift(254 downto 0) <= a_shift(255 downto 1);
-              a_shift(255) <= '0';
+
 
           end if ;
 
           if state = '1' and counter(8) = '0' then
-            
+              a_shift(254 downto 0) <= a_shift(255 downto 1);
+              a_shift(255) <= '0';   
           end if ;
         end if ;
       end if ;
@@ -70,7 +70,7 @@ begin
         P <= (others  => '0');
         b_reg <= (others => '0');
         n_reg <= (others => '0');
-        counter <= (others => '0');
+        counter <= ( others => '0');
       elsif(rising_edge(clock)) then
 
         if begin_monpro = '1' then
@@ -81,27 +81,27 @@ begin
           b_reg <= b;
           n_reg <= n;
           state <= '0';
-          counter <= (others => '0');
+          counter <= ( others => '0');
         else
           if counter(8) = '1' then
-              if Q > unsigned(n_reg) then
+              if Q > '0'&unsigned(n_reg) then
                   result_buf <= ('0' & Q(255 downto 1)) - unsigned(n_reg);
               else
                   result_buf <= '0' & Q(255 downto 1);
               end if ;
           else
-              S <= '0' & Q(255 downto 1);
+              S <= '0' & Q(256 downto 1);
               case( state ) is
                   when '0' =>
                       if a_shift(0) = '1' then
-                          P <= unsigned(b_reg) + S;
+                          P <= '0'&unsigned(b_reg) + S;
                       else
                           P <= S;
                       end if ;
                       state <= '1';
                   when '1' =>
                       if P(0) = '1' then
-                          Q <= unsigned(n_reg) + P;
+                          Q <= '0'&unsigned(n_reg) + P;
                       else
                           Q <= P;
                       end if ;

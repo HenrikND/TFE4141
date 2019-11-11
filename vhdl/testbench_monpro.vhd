@@ -104,9 +104,9 @@ begin
         -- counter
         variable run_number :integer := 0;
     begin
-        file_open(file_vectors,   "C:\Users\hnd00\OneDrive\Github\TFE4141\monpro_test_vector.txt",    read_mode);
-        file_open(file_results,   "C:\Users\hnd00\Desktop\project_1\project_1.srcs\sim_1\new\monpro_output_results.txt",   write_mode);
-        file_open(file_error_log, "C:\Users\hnd00\Desktop\project_1\project_1.srcs\sim_1\new\monpro_output_error_log.txt", write_mode);
+        file_open(file_vectors,   "C:\Users\Henrik\OneDrive\Github\TFE4141\monpro_test_vector.txt",    read_mode);
+        file_open(file_results,   "C:\Users\Henrik\monpro_output_results.txt",   write_mode);
+        file_open(file_error_log, "C:\Users\Henrik\monpro_output_error_log.txt", write_mode);
 
         for i in 0 to 1 loop
             wait until rising_edge(clock);

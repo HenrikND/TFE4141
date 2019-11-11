@@ -18,6 +18,7 @@ def montgomery_product(a,b,n):
             else:
                 S = S + get_bit(a,i)*b + n
             S = S >> 1
+            print("bit, {}, fasit: {:x}".format(get_bit(a,i),S))
     if S >= n:
         return S-n
     else:
@@ -136,8 +137,9 @@ def create_test_file_monpro(number_of_runs):
         b = random.getrandbits(256)
         n = random.getrandbits(256)
 
-        fasit = (a*b)%n
+        fasit = montgomery_product(a,b,n)
+        print("fasit: {:x}".format(fasit))
         f.write("{:0256b}{:0256b}{:0256b}{:0256b}\n".format(fasit,a,b,n))
     f.close()
 
-create_test_file_monpro(20)
+create_test_file_monpro(2)
