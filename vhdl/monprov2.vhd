@@ -84,19 +84,19 @@ begin
           counter <= ( others => '0');
         else
           if counter(8) = '1' then
-              if Q > '0'&unsigned(n_reg) then
+              if ('0' & Q(255 downto 1)) > '0'&unsigned(n_reg) then
                   result_buf <= ('0' & Q(255 downto 1)) - unsigned(n_reg);
               else
                   result_buf <= '0' & Q(255 downto 1);
               end if ;
           else
-              S <= '0' & Q(256 downto 1);
+             -- S <= '0' & Q(256 downto 1);
               case( state ) is
                   when '0' =>
                       if a_shift(0) = '1' then
-                          P <= '0'&unsigned(b_reg) + S;
+                          P <= '0'&unsigned(b_reg) + unsigned('0'&Q(256 downto 1));
                       else
-                          P <= S;
+                          P <= '0' & Q(256 downto 1);
                       end if ;
                       state <= '1';
                   when '1' =>

@@ -17,8 +17,8 @@ def montgomery_product(a,b,n):
                 S = S + get_bit(a,i)*b
             else:
                 S = S + get_bit(a,i)*b + n
-            S = S >> 1
             print("bit, {}, fasit: {:x}".format(get_bit(a,i),S))
+            S = S >> 1
     if S >= n:
         return S-n
     else:
