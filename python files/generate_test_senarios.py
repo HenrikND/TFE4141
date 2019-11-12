@@ -11,6 +11,9 @@ def get_bit(bit_array,bit_location):
     return (bit_array>>bit_location)&0x1
 
 def montgomery_product(a,b,n):
+
+    print("{:x}  {:x}  {:x}".format(a,b,n))
+
     S = 0
     for i in range(bit_length_e):
             if get_bit(S + get_bit(a,i)*b,0) == 0:
@@ -19,10 +22,10 @@ def montgomery_product(a,b,n):
                 S = S + get_bit(a,i)*b + n
             S = S >> 1
     if S >= n:
-        print("mon: {:x}".format(S-n))
+       #print("mon: {:x}".format(S-n))
         return S-n
     else:
-        print("mon: {:x}".format(S))
+        #print("mon: {:x}".format(S))
         return S
 
 def modular_exponentiation(message,e,n):
@@ -130,7 +133,7 @@ def create_test_file(number_of_test_data):
     f.close()
 
 
-create_test_file(2)
+
 
 def create_test_file_monpro(number_of_runs):
     f = open("monpro_test_vector.txt", "w")
@@ -145,5 +148,12 @@ def create_test_file_monpro(number_of_runs):
         f.write("{:0256b}{:0256b}{:0256b}{:0256b}\n".format(fasit,a,b,n))
     f.close()
     print("done")
+#
+#a = 0x86157cb23847a7fd4c9da1a04be314e8d2d6967e6bd57f7bbd498e6077510c55*0x14138c7aef68c36f241c8718ae2c53355b8bdfdc0b44de81eddfe7316ba1cff8
+#b = pow(a,1,  0xce7cb364da8de78e6f057a2673aae54b9ba266c160bb296d1966dc638c145273)
+#print("{:x}".format(b))
+#c = montgomery_product(0x14138c7aef68c36f241c8718ae2c53355b8bdfdc0b44de81eddfe7316ba1cff8,0x86157cb23847a7fd4c9da1a04be314e8d2d6967e6bd57f7bbd498e6077510c55,0xce7cb364da8de78e6f057a2673aae54b9ba266c160bb296d1966dc638c145273)
+#print("{:x}".format(montgomery_product(1,c,0xce7cb364da8de78e6f057a2673aae54b9ba266c160bb296d1966dc638c145273)))
 
 #create_test_file_monpro(100)
+create_test_file(2)
