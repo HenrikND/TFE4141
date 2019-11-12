@@ -59,7 +59,7 @@ begin
                             data_out => modexp_data(i),
                             data_ready => modexp_ready(i));
         -- when busy is 1 the modexp core should function as normal but when 0 the core should be in a reset state
-        
+
     end generate g_gen_modexp;
 
 

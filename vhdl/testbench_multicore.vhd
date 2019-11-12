@@ -54,7 +54,7 @@ architecture Behavioral of testbench_multicore is
         signal multicore_reset_n, multicore_data_ready, multicore_last_message_out, multicore_last_message_in,multicore_message_in_ready,multicore_message_out_ready : std_logic;
         signal multicore_e, multicore_n, multicore_p, multicore_m, multicore_p_mon, multicore_data_out : std_logic_vector(255 downto 0);
         -- constants
-        constant clock_period : time := 1us;
+        constant clock_pulse : time := 10ns;
         -- files
         file file_vectors    : text;
         file file_results    : text;
@@ -78,9 +78,71 @@ begin
     clk_gen: process is
     begin
         clock <= '1';
-        wait for 6 ns;
+        wait for clock_pulse/2;
         clock <= '0';
-        wait for 6 ns;
+        wait for clock_pulse/2;
     end process;
+
+
+
+    test_bench : process
+        -- line variables
+        variable line_vector : line;
+        variable line_result : line;
+        variable line_error  : line;
+
+        -- read variables
+        variable m_add      : std_logic_vector(255 downto 0);
+        variable p_add      : std_logic_vector(255 downto 0);
+        variable p_mon_add  : std_logic_vector(255 downto 0);
+        variable n_add      : std_logic_vector(255 downto 0);
+        variable e_add      : std_logic_vector(255 downto 0);
+        variable fasit      : std_logic_vector(255 downto 0);
+
+        -- log constants
+        variable log_success        : string(1 to 22)   := "successfull run, run: ";
+        variable log_error          : string(1 to 27)   := "error, values differ, run: ";
+        variable space              : string(1 to 3)    := "   ";
+        variable log_error_expected : string(1 to 10)   := "expected: ";
+        variable log_error_got      : string(1 to 11)   := ", but got: ";
+
+        -- counter
+        variable run_number :integer := 0;
+
+    begin
+        -- connect to files
+            -- maa endre pathen til å bli relativ
+        file_open(file_vectors,   "C:\Users\hnd00\OneDrive\Github\TFE4141\multicore_testvectors.txt",    read_mode);
+        file_open(file_results,   "C:/Users/hnd00/Desktop/project_1/project_1.srcs/sim_1/new/multicore_results.txt",   write_mode);
+        file_open(file_error_log, "C:/Users/hnd00/Desktop/project_1/project_1.srcs/sim_1/new/multicore_error_log.txt", write_mode);
+
+        -- loading the keys
+        readline(file_vectors, line_vector);
+        read(line_vector, p_add);
+        read(line_vector, p_mon_add);
+        read(line_vector, n_add);
+        read(line_vector, e_add);
+
+        multicore_e <= e_add;
+        multicore_p <= p_add;
+        multicore_p_mon <= p_mon_add;
+        multicore_n <= n_add;
+
+        -- resetting the system
+        multicore_reset_n <= '0';
+        wait until clock_pulse;
+        multicore_reset_n <= '1';
+        wait until clock_pulse;
+
+        -- looping over different messages
+        loop_over_messages : for i in 0 to 10 loop
+            --accuire message
+            readline(file_vectors, line_vector);
+            read(line_vector, m_add);
+            multicore_m <= m_add;
+            -- give notice of new message
+        end loop ; -- loop_over_messages
+    end process ; -- test_bench
+
 
 end Behavioral;
