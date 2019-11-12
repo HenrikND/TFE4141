@@ -31,7 +31,7 @@ architecture arch of modexp is
     -- data path signals
     signal s_mon : std_logic_vector(255 downto 0);
     signal c, c_buf :std_logic_vector(255 downto 0);
-    signal e_shift : std_logic_vector(256 downto 0);
+    signal e_shift : std_logic_vector(255 downto 0);
     signal result_buf : std_logic_vector(255 downto 0);
 
     -- monpro connectionsresult_buf
@@ -67,7 +67,7 @@ architecture arch of modexp is
 
           when "0000" =>
             state <= "0001";
-
+        
           when "0001" =>
             if monpro_done = '1' then
                 state <= "1100";
@@ -83,16 +83,17 @@ architecture arch of modexp is
             end if;
           when "0101" =>
             if monpro_done = '1' then
-                if counter(8) = '0' then
-                  e_shift <= '0' & e_shift(256 downto 1);
-                  if e_shift(0) = '1' then
+                
+                  e_shift <=  e_shift(254 downto 0) & '0';
+                  if e_shift(255) = '1' then
                     state <= "0110";
                   else
-                    state <= "0100";
+                    if counter(8) = '1' then
+                        state <= "1000";
+                    else                
+                        state <= "0100";
+                    end if;
                   end if;
-                else
-                    state <= "1000";
-                end if;
             end if ;
 
           when "0110" =>
@@ -120,7 +121,7 @@ architecture arch of modexp is
           when others =>
 
         end case ;
-
+        
 
             if state(0) = '0' then
               monpro_begin <= '1';
@@ -128,7 +129,7 @@ architecture arch of modexp is
               monpro_begin <= '0';
             end if ;
 
-
+        
         if state(2) = '1' and monpro_done = '1' then
            --e_shift <= '0' & e_shift(255 downto 1);
         end if;
@@ -157,7 +158,7 @@ architecture arch of modexp is
           monpro_b <= C;
           result_buf <= monpro_result;
         else -- init
-          e_shift <= e & '0';
+          e_shift <= e;
           C <= p_mon;
           monpro_a <= m;
           monpro_b <= p;
