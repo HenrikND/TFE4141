@@ -48,6 +48,7 @@ architecture Behavioral of testbench_modexp is
     end component;
     -- signals
     signal clock : std_logic := '0';
+    signal done : std_logic := '0';
     -- modexp
     signal modexp_reset_n, modexp_data_ready : std_logic;
     signal modexp_e, modexp_n, modexp_p, modexp_m, modexp_p_mon, modexp_data_out : std_logic_vector(255 downto 0);
@@ -71,10 +72,14 @@ begin
 
     clk_gen: process is
         begin
+        if done = '0' then
             clock <= '1';
             wait for 6 ns;
             clock <= '0';
             wait for 6 ns;
+         else
+            wait;
+         end if;
         end process;
 
 
@@ -100,10 +105,10 @@ begin
         variable run_number :integer := 0;
     begin
 
-        file_open(file_vectors,   "C:/Users/hnd00/Desktop/project_1/project_1.srcs/sim_1/new/input_vectors.txt",    read_mode);
+        file_open(file_vectors,   "C:\Users\hnd00\OneDrive\Github\TFE4141\modexp_testvectors.txt",    read_mode);
         file_open(file_results,   "C:/Users/hnd00/Desktop/project_1/project_1.srcs/sim_1/new/output_results.txt",   write_mode);
         file_open(file_error_log, "C:/Users/hnd00/Desktop/project_1/project_1.srcs/sim_1/new/output_error_log.txt", write_mode);
-        for i in 0 to 10 loop
+        for i in 0 to 1 loop
             readline(file_vectors,v_LINE_vector);
             read(v_LINE_vector, v_ADD_fasit);
             read(v_LINE_vector, v_ADD_p);
@@ -113,6 +118,7 @@ begin
             read(v_LINE_vector, v_ADD_e);
 
             report "read from files";
+            wait for 10ns;
             modexp_p        <= v_ADD_p;
             modexp_m        <= v_ADD_m;
             modexp_n        <= v_ADD_n;
@@ -122,8 +128,8 @@ begin
             modexp_reset_n <= '0';
             wait for 10ns;
             modexp_reset_n <= '1';
-            wait for 100us;
-
+            wait for 10ns;
+            wait on modexp_data_ready;
             if(modexp_data_out = v_add_fasit) then
                 write(v_line_result, log_success ,left, 22);
                 write(v_line_result, i, right, 5);
@@ -152,6 +158,8 @@ begin
         file_close(file_vectors);
         file_close(file_results);
         file_close(file_error_log);
+        done <= '1';
+        wait;
     end process;
 
 

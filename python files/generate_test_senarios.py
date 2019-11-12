@@ -19,9 +19,10 @@ def montgomery_product(a,b,n):
                 S = S + get_bit(a,i)*b + n
             S = S >> 1
     if S >= n:
-
+        print("mon: {:x}".format(S-n))
         return S-n
     else:
+        print("mon: {:x}".format(S))
         return S
 
 def modular_exponentiation(message,e,n):
