@@ -52,7 +52,7 @@ begin
 
           if state = '1' and counter(8) = '0' then
               a_shift(254 downto 0) <= a_shift(255 downto 1);
-              a_shift(255) <= '0';   
+              a_shift(255) <= '0';
           end if ;
         end if ;
       end if ;

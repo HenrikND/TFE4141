@@ -73,20 +73,29 @@ architecture arch of modexp is
             end if ;
 
           when "0100" =>
+            if monpro_done = '0' then
             state <= "0101";
             counter <= std_logic_vector(unsigned(counter) + 1);
+            
+            end if;
           when "0101" =>
             if monpro_done = '1' then
+            if counter(8) = '0' then
+              e_shift <= '0' & e_shift(255 downto 1);
               if e_shift(0) = '1' then
                 state <= "0110";
               else
                 state <= "0100";
               end if;
+            else
+                state <= "1000";
+            end if;
             end if ;
 
           when "0110" =>
+            if monpro_done = '0' then
             state <= "0111";
-
+            end if;
           when "0111" =>
             if monpro_done = '1' and counter(8) = '1' then
               state <= "1000";
@@ -95,8 +104,9 @@ architecture arch of modexp is
             end if ;
 
           when "1000" =>
-            state <= "1001";
-
+            if monpro_done = '0' then
+                state <= "1001";
+            end if;
           when "1001" =>
             if monpro_done = '1'then
               state <= "1110";
@@ -115,7 +125,7 @@ architecture arch of modexp is
         end if ;
 
         if state(2) = '1' and monpro_done = '1' then
-           e_shift <= '0' & e_shift(255 downto 1);
+           --e_shift <= '0' & e_shift(255 downto 1);
         end if;
 
         if state = "1110" then

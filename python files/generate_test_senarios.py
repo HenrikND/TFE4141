@@ -17,9 +17,9 @@ def montgomery_product(a,b,n):
                 S = S + get_bit(a,i)*b
             else:
                 S = S + get_bit(a,i)*b + n
-            print("bit, {}, fasit: {:x}".format(get_bit(a,i),S))
             S = S >> 1
     if S >= n:
+
         return S-n
     else:
         return S
@@ -29,6 +29,7 @@ def modular_exponentiation(message,e,n):
     S_mon = montgomery_product(p_mod_n,message,n)
     C = montgomery_product(1,p_mod_n,n) #prefined
     C_begin = montgomery_product(1,p_mod_n,n)
+    print("C: {:x}".format(C))
     for i in range(bit_length_e-1,-1,-1):
         C = montgomery_product(C,C,n)
         if get_bit(e,i):
@@ -40,8 +41,8 @@ def modular_exponentiation(message,e,n):
 def generate_test_data(e, p, q):
     n = random.getrandbits(256)
     message = random.getrandbits(256)
-    fasit, s_mon, p_mod_n, C_begin = modular_exponentiation(message, e ,n)
-    return fasit, s_mon, p_mod_n, message, n, C_begin
+    fasit, p_mod_n, C_begin = modular_exponentiation(message, e ,n)
+    return fasit, p_mod_n, message, n, C_begin
 
 
 
@@ -109,7 +110,7 @@ def generate_prime_number(length=256):
 
 
 def create_test_file(number_of_test_data):
-    f = open("demofile2.txt", "w")
+    f = open("modexp_testvectors.txt", "w")
     primes = [generate_prime_number() for i in range(0, 20)]
 
     for i in range(0, number_of_test_data):
@@ -128,18 +129,20 @@ def create_test_file(number_of_test_data):
     f.close()
 
 
-#create_test_file(20)
+create_test_file(2)
 
 def create_test_file_monpro(number_of_runs):
     f = open("monpro_test_vector.txt", "w")
+    print("begin")
     for i in range(0,number_of_runs):
         a = random.getrandbits(256)
         b = random.getrandbits(256)
         n = random.getrandbits(256)
 
         fasit = montgomery_product(a,b,n)
-        print("fasit: {:x}".format(fasit))
+        #print("fasit: {:064x}".format(fasit))
         f.write("{:0256b}{:0256b}{:0256b}{:0256b}\n".format(fasit,a,b,n))
     f.close()
+    print("done")
 
-create_test_file_monpro(2)
+#create_test_file_monpro(100)
