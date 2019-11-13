@@ -6,10 +6,10 @@ use ieee.numeric_std.all;
 entity multicore is
     generic  (number_of_cores : integer := 5);
     port (
-        clock, reset_n , last_message_in, message_in_ready, message_out_ready: in std_logic;
+        clock, reset_n , last_message_in, message_in_valid, message_out_ready: in std_logic;
         e, p, n, m, p_mon : in std_logic_vector(255 downto 0);
         data_out : out std_logic_vector(255 downto 0);
-        data_ready, last_message_out : out std_logic
+        message_out_valid, last_message_out, message_in_ready : out std_logic
       ) ;
 end multicore ;
 
@@ -20,7 +20,7 @@ architecture arch of multicore is
             clock, reset_n: in std_logic;
             e, p, n, m, p_mon : in std_logic_vector(255 downto 0);
             data_out : out std_logic_vector(255 downto 0);
-            data_ready : out std_logic
+            message_out_valid : out std_logic
           ) ;
     end component;
 
@@ -57,7 +57,7 @@ begin
                             m => modexp_m(i),
                             p_mon => p_mon,
                             data_out => modexp_data(i),
-                            data_ready => modexp_ready(i));
+                            message_out_valid => modexp_ready(i));
         -- when busy is 1 the modexp core should function as normal but when 0 the core should be in a reset state
 
     end generate g_gen_modexp;
@@ -74,7 +74,8 @@ begin
         elsif( rising_edge(clock) ) then
             modexp_reset_n <= flag_busy;
             -- push message
-            if flag_busy(modexp_state) = '0' and message_in_ready = '1' then
+            if flag_busy(modexp_state) = '0' and message_in_valid = '1' then
+                message_in_ready <= '1';
                 modexp_m(modexp_state) <= m;
                 flag_busy(modexp_state) <= '1';
                 if last_message_in = '0' then
@@ -89,13 +90,14 @@ begin
                 else
                     flag_last_message(modexp_state) <= '1';
                 end if ;
-
+            else
+                message_in_ready <= '0';
             end if ;
 
             -- check if core is done and send data out
             if flag_busy(output_state) = '1' and modexp_ready(output_state) = '1' then
                 data_out <= modexp_data(output_state);
-                data_ready <= '1';
+                message_out_valid <= '1';
 
                 if message_out_ready  = '1' then
                     if flag_last_message(output_state) = '1' then
@@ -111,7 +113,7 @@ begin
                     flag_busy(output_state) <= '0';
                 end if ;
             else
-                data_ready <= '0';
+                message_out_valid <= '0';
             end if ;
         end if ;
     end process ; -- controll

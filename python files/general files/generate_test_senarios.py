@@ -43,15 +43,10 @@ def modular_exponentiation(message,e,n):
 
 #test fuctions
 def generate_test_data(e, p, q):
-    n = random.getrandbits(256)
+    n = p*q
     message = random.getrandbits(256)
     fasit, p_mod_n, C_begin = modular_exponentiation(message, e ,n)
     return fasit, p_mod_n, message, n, C_begin
-
-
-
-
-
 
 
 def is_prime(n, k=128):
