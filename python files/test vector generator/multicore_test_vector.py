@@ -47,10 +47,12 @@ def modular_exponentiation(message,e,n):
 
 
 def generate_test_vectors(number_of_test_vectors):
-    messages_file = open("multicore_keys_messages.txt","w")
-    fasit_file = open("multicore_fasit.txt","w")
-    p = get_prime()
-    q = get_prime()
+    #open files
+    messages_file = open("multicore_testvectors.txt","w")
+    fasit_file = open("multicore_fasitvectors.txt","w")
+    #set keys
+    p = int(get_prime())
+    q = int(get_prime())
     n = p*q
     phi = (p-1)*(q-1)
     e = random.getrandbits(256)
@@ -60,10 +62,20 @@ def generate_test_vectors(number_of_test_vectors):
             e -= random.randint(0, e-phi)
     p_mod_n = pow(2,2*256,n)
     C_begin = montgomery_product(1,p_mod_n,n)
-    
-
-
+    #write keys to file
+    messages_file.write("{:0256b}{:0256b}{:0256b}{:0256b}\n".format(p_mod_n, C_begin,n,e))
+    #generate messages
     for i in range(0, number_of_test_vectors):
         message = random.getrandbits(256)
         fasit = modular_exponentiation(message, e, n)
+        #write message to file
+        messages_file.write("{:0256b}\n".format(message))
+        #write fasit to file
+        fasit_file.write("{:0256b}\n".format(fasit))
 
+    #close files
+    messages_file.close()
+    fasit_file.close()
+
+
+generate_test_vectors(20)
