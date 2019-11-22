@@ -4,7 +4,7 @@ import random
 from random import randrange, getrandbits
 
 def get_prime():
-        path = "./python files/test vector generator/prime_numbers/prime_numbers.txt"
+        path = "./python files/test vector generator/prime_numbers/prime_numbers_2.txt"
         prime_numbers_file = open(path,"r")
         number_of_primes = prime_numbers_file.readline()
         prime_location = random.randint(1,int(number_of_primes))
@@ -54,6 +54,10 @@ def generate_test_vectors(number_of_test_vectors):
     p = int(get_prime())
     q = int(get_prime())
     n = p*q
+    print(n)
+    print(q)
+    print(p)
+
     phi = (p-1)*(q-1)
     e = random.getrandbits(256)
     while math.gcd(e,phi) != 1 or e-phi > 0 :

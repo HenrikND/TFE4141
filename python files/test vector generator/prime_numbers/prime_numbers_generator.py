@@ -49,7 +49,7 @@ def generate_prime_candidate(length):
     p |= (1 << length - 1) | 1
     return p
 
-def generate_prime_number(length=256):
+def generate_prime_number(length=128):
     """ Generate a prime
         Args:
             length -- int -- length of the prime to generate, in          bits
@@ -84,4 +84,4 @@ def generate_list_of_prime_numbers(number_of_primes):
     #close file
     prime_numbers_file.close()
 
-generate_list_of_prime_numbers(100000)
+generate_list_of_prime_numbers(1000)
