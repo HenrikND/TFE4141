@@ -1,0 +1,12 @@
+# compile vhdl design source files
+vhdl xil_defaultlib  \
+"../../../../Exponentiation.srcs/sources_1/imports/src/modexp.vhd" \
+"../../../../Exponentiation.srcs/sources_1/imports/src/monpro.vhd" \
+"../../../../Exponentiation.srcs/sources_1/imports/src/multicore.vhd" \
+"../../../../Exponentiation.srcs/sim_1/imports/sim/testbench_modexp.vhd" \
+"../../../../Exponentiation.srcs/sim_1/imports/sim/testbench_multicore.vhd" \
+"../../../../Exponentiation.srcs/sim_1/imports/sim/Testbench.vhd" \
+"../../../../Exponentiation.srcs/sim_1/imports/sim/testbench_monpro.vhd" \
+
+# Do not sort compile order
+nosort

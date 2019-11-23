@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Webtalk v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Nov 23 13:34:39 2019
+# Process ID: 10936
+# Current directory: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.sim/sim_1/behav/xsim
+# Command line: wbtcv.exe -mode batch -source C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.sim/sim_1/behav/xsim/xsim.dir/Testbench_behav/webtalk/xsim_webtalk.tcl -notrace
+# Log file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.sim/sim_1/behav/xsim/webtalk.log
+# Journal file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.sim/sim_1/behav/xsim\webtalk.jou
+#-----------------------------------------------------------
+source C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.sim/sim_1/behav/xsim/xsim.dir/Testbench_behav/webtalk/xsim_webtalk.tcl -notrace

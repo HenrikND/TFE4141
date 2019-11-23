@@ -48,8 +48,8 @@ def modular_exponentiation(message,e,n):
 
 def generate_test_vectors(number_of_test_vectors):
     #open files
-    messages_file = open("multicore_testvectors.txt","w")
-    fasit_file = open("multicore_fasitvectors.txt","w")
+    messages_file = open("../multicore_testvectors.txt","w")
+    fasit_file = open("../multicore_fasitvectors.txt","w")
     #set keys
     p = int(get_prime())
     q = int(get_prime())

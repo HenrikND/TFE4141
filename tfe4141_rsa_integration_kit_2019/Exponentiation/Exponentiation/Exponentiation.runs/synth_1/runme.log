@@ -1,0 +1,359 @@
+
+*** Running vivado
+    with args -log Exponentiation.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source Exponentiation.tcl
+
+
+****** Vivado v2019.1 (64-bit)
+  **** SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+  **** IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+    ** Copyright 1986-2019 Xilinx, Inc. All Rights Reserved.
+
+source Exponentiation.tcl -notrace
+Command: synth_design -top Exponentiation -part xc7z020clg400-1
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7z020'
+INFO: [Device 21-403] Loading part xc7z020clg400-1
+INFO: Launching helper process for spawning children vivado processes
+INFO: Helper process launched with PID 15496 
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:08 ; elapsed = 00:00:10 . Memory (MB): peak = 728.617 ; gain = 177.184
+---------------------------------------------------------------------------------
+INFO: [Synth 8-638] synthesizing module 'Exponentiation' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/multicore.vhd:16]
+	Parameter number_of_cores bound to: 2 - type: integer 
+INFO: [Synth 8-3491] module 'modexp' declared at 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/modexp.vhd:6' bound to instance 'uut' of component 'modexp' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/multicore.vhd:50]
+INFO: [Synth 8-638] synthesizing module 'modexp' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/modexp.vhd:15]
+INFO: [Synth 8-3491] module 'monpro' declared at 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/monpro.vhd:5' bound to instance 'uut' of component 'monpro' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/modexp.vhd:40]
+INFO: [Synth 8-638] synthesizing module 'monpro' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/monpro.vhd:16]
+INFO: [Synth 8-226] default block is never used [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/monpro.vhd:94]
+WARNING: [Synth 8-6014] Unused sequential element S_reg was removed.  [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/monpro.vhd:69]
+INFO: [Synth 8-256] done synthesizing module 'monpro' (1#1) [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/monpro.vhd:16]
+INFO: [Synth 8-256] done synthesizing module 'modexp' (2#1) [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/modexp.vhd:15]
+INFO: [Synth 8-3491] module 'modexp' declared at 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/modexp.vhd:6' bound to instance 'uut' of component 'modexp' [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/multicore.vhd:50]
+INFO: [Synth 8-256] done synthesizing module 'Exponentiation' (3#1) [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.srcs/sources_1/imports/src/multicore.vhd:16]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:10 ; elapsed = 00:00:12 . Memory (MB): peak = 792.566 ; gain = 241.133
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 792.566 ; gain = 241.133
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:10 ; elapsed = 00:00:13 . Memory (MB): peak = 792.566 ; gain = 241.133
+---------------------------------------------------------------------------------
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Parsing XDC File [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Master_constraints/PYNQ-Z1_C.xdc]
+Finished Parsing XDC File [C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Master_constraints/PYNQ-Z1_C.xdc]
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.002 . Memory (MB): peak = 932.590 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+Constraint Validation Runtime : Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.221 . Memory (MB): peak = 937.289 ; gain = 4.699
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7z020clg400-1
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Applying 'set_property' XDC Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished applying 'set_property' XDC Constraints : Time (s): cpu = 00:00:26 ; elapsed = 00:00:32 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+INFO: [Synth 8-802] inferred FSM for state register 'state_reg' in module 'modexp'
+---------------------------------------------------------------------------------------------------
+                   State |                     New Encoding |                Previous Encoding 
+---------------------------------------------------------------------------------------------------
+                 iSTATE2 |                             0000 |                             0000
+                 iSTATE1 |                             0001 |                             0001
+                 iSTATE0 |                             0010 |                             1100
+                  iSTATE |                             0011 |                             0100
+                 iSTATE8 |                             0100 |                             0101
+                 iSTATE6 |                             0101 |                             0110
+                 iSTATE3 |                             0110 |                             0111
+                 iSTATE5 |                             0111 |                             1000
+                 iSTATE4 |                             1000 |                             1001
+                 iSTATE7 |                             1001 |                             1110
+---------------------------------------------------------------------------------------------------
+INFO: [Synth 8-3354] encoded FSM with state register 'state_reg' using encoding 'sequential' in module 'modexp'
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:28 ; elapsed = 00:00:34 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start RTL Component Statistics 
+---------------------------------------------------------------------------------
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input    257 Bit       Adders := 2     
+	   2 Input      9 Bit       Adders := 6     
++---Registers : 
+	              258 Bit    Registers := 4     
+	              257 Bit    Registers := 2     
+	              256 Bit    Registers := 21    
+	                9 Bit    Registers := 4     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 13    
++---Muxes : 
+	   2 Input    257 Bit        Muxes := 4     
+	   2 Input    256 Bit        Muxes := 27    
+	   2 Input      9 Bit        Muxes := 8     
+	  10 Input      4 Bit        Muxes := 4     
+	   2 Input      4 Bit        Muxes := 6     
+	   2 Input      2 Bit        Muxes := 5     
+	   2 Input      1 Bit        Muxes := 32    
+	  10 Input      1 Bit        Muxes := 6     
+---------------------------------------------------------------------------------
+Finished RTL Component Statistics 
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start RTL Hierarchical Component Statistics 
+---------------------------------------------------------------------------------
+Hierarchical RTL Component report 
+Module Exponentiation 
+Detailed RTL Component Info : 
++---Registers : 
+	              256 Bit    Registers := 3     
+	                2 Bit    Registers := 3     
+	                1 Bit    Registers := 5     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 1     
+	   2 Input      2 Bit        Muxes := 5     
+Module monpro 
+Detailed RTL Component Info : 
++---Adders : 
+	   3 Input    257 Bit       Adders := 1     
+	   2 Input      9 Bit       Adders := 1     
++---Registers : 
+	              258 Bit    Registers := 2     
+	              257 Bit    Registers := 1     
+	              256 Bit    Registers := 3     
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    257 Bit        Muxes := 2     
+	   2 Input    256 Bit        Muxes := 3     
+	   2 Input      9 Bit        Muxes := 1     
+	   2 Input      1 Bit        Muxes := 6     
+Module modexp 
+Detailed RTL Component Info : 
++---Adders : 
+	   2 Input      9 Bit       Adders := 2     
++---Registers : 
+	              256 Bit    Registers := 6     
+	                9 Bit    Registers := 1     
+	                1 Bit    Registers := 2     
++---Muxes : 
+	   2 Input    256 Bit        Muxes := 10    
+	   2 Input      9 Bit        Muxes := 3     
+	  10 Input      4 Bit        Muxes := 2     
+	   2 Input      4 Bit        Muxes := 3     
+	   2 Input      1 Bit        Muxes := 10    
+	  10 Input      1 Bit        Muxes := 3     
+---------------------------------------------------------------------------------
+Finished RTL Hierarchical Component Statistics
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Part Resource Summary
+---------------------------------------------------------------------------------
+Part Resources:
+DSPs: 220 (col length:60)
+BRAMs: 280 (col length: RAMB18 60 RAMB36 30)
+---------------------------------------------------------------------------------
+Finished Part Resource Summary
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Cross Boundary and Area Optimization
+---------------------------------------------------------------------------------
+Warning: Parallel synthesis criteria is not met 
+---------------------------------------------------------------------------------
+Finished Cross Boundary and Area Optimization : Time (s): cpu = 00:01:17 ; elapsed = 00:01:28 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Applying XDC Timing Constraints
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Applying XDC Timing Constraints : Time (s): cpu = 00:01:35 ; elapsed = 00:01:47 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Timing Optimization
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Timing Optimization : Time (s): cpu = 00:01:38 ; elapsed = 00:01:50 . Memory (MB): peak = 937.289 ; gain = 385.855
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Technology Mapping
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Technology Mapping : Time (s): cpu = 00:01:46 ; elapsed = 00:02:04 . Memory (MB): peak = 963.887 ; gain = 412.453
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Flattening Before IO Insertion
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Final Netlist Cleanup
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:01:54 ; elapsed = 00:02:20 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+
+Report Check Netlist: 
++------+------------------+-------+---------+-------+------------------+
+|      |Item              |Errors |Warnings |Status |Description       |
++------+------------------+-------+---------+-------+------------------+
+|1     |multi_driven_nets |      0|        0|Passed |Multi driven nets |
++------+------------------+-------+---------+-------+------------------+
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:01:54 ; elapsed = 00:02:20 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+
+Report RTL Partitions: 
++-+--------------+------------+----------+
+| |RTL Partition |Replication |Instances |
++-+--------------+------------+----------+
++-+--------------+------------+----------+
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:01:56 ; elapsed = 00:02:22 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:01:56 ; elapsed = 00:02:23 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:01:59 ; elapsed = 00:02:29 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:01:59 ; elapsed = 00:02:30 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-------+------+
+|      |Cell   |Count |
++------+-------+------+
+|1     |BUFG   |     1|
+|2     |CARRY4 |   454|
+|3     |LUT1   |     5|
+|4     |LUT2   |  1563|
+|5     |LUT3   |  1823|
+|6     |LUT4   |  2595|
+|7     |LUT5   |   544|
+|8     |LUT6   |    16|
+|9     |FDCE   |  4163|
+|10    |FDRE   |  2821|
+|11    |FDSE   |     2|
+|12    |IBUF   |  1285|
+|13    |OBUF   |   259|
++------+-------+------+
+
+Report Instance Areas: 
++------+------------------------+---------+------+
+|      |Instance                |Module   |Cells |
++------+------------------------+---------+------+
+|1     |top                     |         | 15531|
+|2     |  \g_gen_modexp[0].uut  |modexp   |  6474|
+|3     |    uut                 |monpro_1 |  4110|
+|4     |  \g_gen_modexp[1].uut  |modexp_0 |  6724|
+|5     |    uut                 |monpro   |  4110|
++------+------------------------+---------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:01:59 ; elapsed = 00:02:30 . Memory (MB): peak = 966.844 ; gain = 415.410
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:01:41 ; elapsed = 00:02:22 . Memory (MB): peak = 966.844 ; gain = 270.688
+Synthesis Optimization Complete : Time (s): cpu = 00:01:59 ; elapsed = 00:02:31 . Memory (MB): peak = 966.844 ; gain = 415.410
+INFO: [Project 1-571] Translating synthesized netlist
+INFO: [Netlist 29-17] Analyzing 454 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 1 CPU seconds
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.011 . Memory (MB): peak = 976.758 ; gain = 0.000
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+INFO: [Common 17-83] Releasing license: Synthesis
+23 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:02:18 ; elapsed = 00:02:58 . Memory (MB): peak = 976.758 ; gain = 682.031
+Netlist sorting complete. Time (s): cpu = 00:00:01 ; elapsed = 00:00:00.011 . Memory (MB): peak = 976.758 ; gain = 0.000
+WARNING: [Constraints 18-5210] No constraints selected for write.
+Resolution: This message can indicate that there are no constraints for the design, or it can indicate that the used_in flags are set such that the constraints are ignored. This later case is used when running synth_design to not write synthesis constraints to the resulting checkpoint. Instead, project constraints are read when the synthesized design is opened.
+INFO: [Common 17-1381] The checkpoint 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/Exponentiation/Exponentiation.runs/synth_1/Exponentiation.dcp' has been generated.
+write_checkpoint: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 976.758 ; gain = 0.000
+INFO: [runtcl-4] Executing : report_utilization -file Exponentiation_utilization_synth.rpt -pb Exponentiation_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 13:57:22 2019...
