@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sat Nov 23 14:01:07 2019
-# Process ID: 11960
+# Start of session at: Sat Nov 23 18:08:31 2019
+# Process ID: 12568
 # Current directory: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent16076 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_accelerator\RSA_accelerator\RSA_accelerator.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent12584 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_accelerator\RSA_accelerator\RSA_accelerator.xpr
 # Log file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator/vivado.log
 # Journal file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator\vivado.jou
 #-----------------------------------------------------------
@@ -13,14 +13,12 @@ start_gui
 open_project C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator/RSA_accelerator.xpr
 INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
 Current project path is 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator'
-INFO: [Project 1-313] Project file moved from 'C:/Users/Henrik/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/RSA_accelerator' since last save.
-CRITICAL WARNING: [Project 1-311] Could not find the file 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/source/exponentiation.vhd', nor could it be found using path 'C:/Users/Henrik/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/Exponentiation/source/exponentiation.vhd'.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/IP'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/xilinx/Vivado/2019.1/data/ip'.
-open_project: Time (s): cpu = 00:00:21 ; elapsed = 00:00:11 . Memory (MB): peak = 674.973 ; gain = 42.125
+open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:09 . Memory (MB): peak = 964.824 ; gain = 47.469
 update_compile_order -fileset sources_1
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 14:02:23 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 18:27:09 2019...

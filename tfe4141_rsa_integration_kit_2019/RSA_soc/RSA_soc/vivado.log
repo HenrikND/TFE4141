@@ -2,10 +2,10 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sat Nov 23 13:56:12 2019
-# Process ID: 10464
+# Start of session at: Sat Nov 23 18:04:17 2019
+# Process ID: 12932
 # Current directory: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7068 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_soc\RSA_soc\RSA_soc.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17412 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_soc\RSA_soc\RSA_soc.xpr
 # Log file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/vivado.log
 # Journal file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc\vivado.jou
 #-----------------------------------------------------------
@@ -13,13 +13,43 @@ start_gui
 open_project C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/RSA_soc.xpr
 INFO: [ProjectBase 1-489] The host OS only allows 260 characters in a normal path. The project is stored in a path with more than 80 characters. If you experience issues with IP, Block Designs, or files not being found, please consider moving the project to a location with a shorter path. Alternately consider using the OS subst command to map part of the path to a drive letter.
 Current project path is 'C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc'
-INFO: [Project 1-313] Project file moved from 'C:/Users/Henrik/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc' since last save.
 Scanning sources...
 Finished scanning sources
 INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1700] Loaded user IP repository 'c:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_accelerator/IP'.
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository 'C:/xilinx/Vivado/2019.1/data/ip'.
-open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:14 . Memory (MB): peak = 694.902 ; gain = 55.789
+open_project: Time (s): cpu = 00:00:35 ; elapsed = 00:00:20 . Memory (MB): peak = 764.551 ; gain = 128.988
 update_compile_order -fileset sources_1
+open_bd_design {C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/boards/rsa_soc.bd}
+Adding component instance block -- xilinx.com:ip:axi_dma:7.1 - rsa_dma
+Adding component instance block -- xilinx.com:user:RSA_accelerator:1.0 - rsa_acc
+Adding component instance block -- xilinx.com:ip:smartconnect:1.0 - axi_smc
+Adding component instance block -- xilinx.com:ip:processing_system7:5.5 - processing_system7_0
+Adding component instance block -- xilinx.com:ip:axi_interconnect:2.1 - ps7_0_axi_periph
+Adding component instance block -- xilinx.com:ip:axi_crossbar:2.1 - xbar
+Adding component instance block -- xilinx.com:ip:axi_protocol_converter:2.1 - auto_pc
+Adding component instance block -- xilinx.com:ip:proc_sys_reset:5.0 - rst_ps7_0_100M
+Successfully read diagram <rsa_soc> from BD file <C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/boards/rsa_soc.bd>
+open_bd_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:17 . Memory (MB): peak = 1251.371 ; gain = 0.000
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+startgroup
+set_property -dict [list CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {90}] [get_bd_cells processing_system7_0]
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+endgroup
+CRITICAL WARNING: [PSU-1]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_2 has negative value -0.009 . PS DDR interfaces might fail when entering negative DQS skew values. 
+CRITICAL WARNING: [PSU-2]  Parameter : PCW_UIPARAM_DDR_DQS_TO_CLK_DELAY_3 has negative value -0.033 . PS DDR interfaces might fail when entering negative DQS skew values. 
+WARNING: [IP_Flow 19-474] Invalid Parameter 'Component_Name'
+startgroup
+endgroup
+save_bd_design
+Wrote  : <C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_soc\boards\rsa_soc.bd> 
+Wrote  : <C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/boards/ui/bd_83b82568.ui> 
 exit
-INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 14:02:19 2019...
+INFO: [Common 17-206] Exiting Vivado at Sat Nov 23 18:27:06 2019...

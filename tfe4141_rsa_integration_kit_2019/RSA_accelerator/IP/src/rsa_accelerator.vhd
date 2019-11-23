@@ -17,7 +17,7 @@ entity rsa_accelerator is
 	generic (
 		-- Users to add parameters here
 		C_BLOCK_SIZE : integer := 256;
-
+        
 		-- User parameters ends
 		
 
@@ -39,7 +39,6 @@ entity rsa_accelerator is
 		-- Users to add ports here
 		clk             : in std_logic;
 		reset_n         : in std_logic;
-
 		-- User ports ends
 		-- Do not modify the ports beyond this line
 
@@ -105,6 +104,7 @@ architecture rtl of rsa_accelerator is
 	signal key_e_d      : std_logic_vector(C_BLOCK_SIZE-1 downto 0);
 	signal key_n        : std_logic_vector(C_BLOCK_SIZE-1 downto 0);
 	signal rsa_status   : std_logic_vector(31 downto 0);
+	signal p, p_mon       : std_logic_vector(255 downto 0);
 
 begin
 
@@ -120,7 +120,9 @@ u_rsa_regio : entity work.rsa_regio
 		key_e_d                 => key_e_d,
 		key_n                   => key_n,
 		rsa_status              => rsa_status,
-
+        key_p => p,
+        key_p_mon => p_mon,
+        
 		S_AXI_ACLK              => clk,
 		S_AXI_ARESETN           => reset_n,
 		S_AXI_AWADDR            => s00_axi_awaddr,
@@ -223,8 +225,9 @@ u_rsa_core : entity work.rsa_core
 		-----------------------------------------------------------------------------
 		key_e_d                => key_e_d,
 		key_n                  => key_n,
-		rsa_status             => rsa_status
-
+		rsa_status             => rsa_status,
+        p => p,
+        p_mon => p_mon
 	);
 
 end rtl;

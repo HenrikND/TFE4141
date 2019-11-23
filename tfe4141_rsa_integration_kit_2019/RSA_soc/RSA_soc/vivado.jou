@@ -2,13 +2,20 @@
 # Vivado v2019.1 (64-bit)
 # SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
 # IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
-# Start of session at: Sat Nov 23 13:56:12 2019
-# Process ID: 10464
+# Start of session at: Sat Nov 23 18:04:17 2019
+# Process ID: 12932
 # Current directory: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc
-# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent7068 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_soc\RSA_soc\RSA_soc.xpr
+# Command line: vivado.exe -gui_launcher_event rodinguilauncherevent17412 C:\Users\hnd00\OneDrive\Github\TFE4141\tfe4141_rsa_integration_kit_2019\RSA_soc\RSA_soc\RSA_soc.xpr
 # Log file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/vivado.log
 # Journal file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc\vivado.jou
 #-----------------------------------------------------------
 start_gui
 open_project C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/RSA_soc.xpr
 update_compile_order -fileset sources_1
+open_bd_design {C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/boards/rsa_soc.bd}
+startgroup
+set_property -dict [list CONFIG.PCW_FPGA0_PERIPHERAL_FREQMHZ {90}] [get_bd_cells processing_system7_0]
+endgroup
+startgroup
+endgroup
+save_bd_design

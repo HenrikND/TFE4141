@@ -4,7 +4,7 @@ import random
 from random import randrange, getrandbits
 
 def get_prime():
-        path = "./python files/test vector generator/prime_numbers/prime_numbers_2.txt"
+        path = "python files/test vector generator/primes/prime_numbers_2.txt"
         prime_numbers_file = open(path,"r")
         number_of_primes = prime_numbers_file.readline()
         prime_location = random.randint(1,int(number_of_primes))
@@ -48,8 +48,8 @@ def modular_exponentiation(message,e,n):
 
 def generate_test_vectors(number_of_test_vectors):
     #open files
-    messages_file = open("../multicore_testvectors.txt","w")
-    fasit_file = open("../multicore_fasitvectors.txt","w")
+    messages_file = open("python files/multicore_testvectors.txt","w")
+    fasit_file = open("python files/multicore_fasitvectors.txt","w")
     #set keys
     p = int(get_prime())
     q = int(get_prime())

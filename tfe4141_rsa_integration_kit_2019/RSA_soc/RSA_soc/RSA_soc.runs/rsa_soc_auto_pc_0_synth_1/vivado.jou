@@ -1,0 +1,12 @@
+#-----------------------------------------------------------
+# Vivado v2019.1 (64-bit)
+# SW Build 2552052 on Fri May 24 14:49:42 MDT 2019
+# IP Build 2548770 on Fri May 24 18:01:18 MDT 2019
+# Start of session at: Sat Nov 23 15:06:51 2019
+# Process ID: 2532
+# Current directory: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/RSA_soc.runs/rsa_soc_auto_pc_0_synth_1
+# Command line: vivado.exe -log rsa_soc_auto_pc_0.vds -product Vivado -mode batch -messageDb vivado.pb -notrace -source rsa_soc_auto_pc_0.tcl
+# Log file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/RSA_soc.runs/rsa_soc_auto_pc_0_synth_1/rsa_soc_auto_pc_0.vds
+# Journal file: C:/Users/hnd00/OneDrive/Github/TFE4141/tfe4141_rsa_integration_kit_2019/RSA_soc/RSA_soc/RSA_soc.runs/rsa_soc_auto_pc_0_synth_1\vivado.jou
+#-----------------------------------------------------------
+source rsa_soc_auto_pc_0.tcl -notrace

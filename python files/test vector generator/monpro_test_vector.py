@@ -25,7 +25,7 @@ def montgomery_product(a,b,n):
         return S
 
 def create_test_file_monpro(number_of_runs):
-    f = open("../monpro_testvectors.txt", "w")
+    f = open("python files/monpro_testvectors.txt", "w")
     print("begin")
     for i in range(0,number_of_runs):
         a = random.getrandbits(256)

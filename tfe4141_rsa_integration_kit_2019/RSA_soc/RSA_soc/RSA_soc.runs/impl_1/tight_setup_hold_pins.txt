@@ -1,0 +1,37 @@
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|       Launch Clock       |      Capture Clock       |                                                 Pin                                                      |
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[253]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[255]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[248]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[237]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[249]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[251]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[244]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[245]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[247]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[254]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[252]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[241]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[243]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[253]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[255]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[250]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[254]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[238]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[240]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[239]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[251]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[249]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[252]/D|
+|               clk_fpga_0 |               clk_fpga_0 |                 rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/Q_reg[257]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[240]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[246]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[250]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[233]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[245]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[248]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[247]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[1].uut/uut/result_buf_reg[235]/D|
+|               clk_fpga_0 |               clk_fpga_0 |        rsa_soc_i/rsa/rsa_acc/U0/u_rsa_core/i_exponentiation/g_gen_modexp[0].uut/uut/result_buf_reg[236]/D|
++--------------------------+--------------------------+----------------------------------------------------------------------------------------------------------+
