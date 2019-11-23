@@ -20,6 +20,8 @@ architecture arch of monpro is
     signal result_buf : unsigned(256 downto 0);
     signal counter : unsigned(8 downto 0);
     signal state : std_ulogic;
+    
+
 
 begin
 
@@ -61,6 +63,7 @@ begin
 
 
     data_path : process( clock, reset_n )
+    
     begin
       if( reset_n = '0' ) then
         state <= '0';
@@ -72,7 +75,7 @@ begin
         n_reg <= (others => '0');
         counter <= ( others => '0');
       elsif(rising_edge(clock)) then
-
+ 
         if begin_monpro = '1' then
           Q <= (others => '0');
           result_buf <= (others => '0');
@@ -86,7 +89,9 @@ begin
           if counter(8) = '1' then
               if (Q(257 downto 1)) > unsigned(n_reg) then
                   result_buf <= (Q(257 downto 1)) - unsigned(n_reg);
+                  
               else
+                
                   result_buf <=  Q(257 downto 1);
               end if ;
           else
